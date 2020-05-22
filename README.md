@@ -1,6 +1,15 @@
 # Unscented Kalman Filter Project Starter Code
 Self-Driving Car Engineer Nanodegree Program
 
+In last project, we implement the Extended-Kalman-Filter, but the EKF is not the best way to solve non-linear problem, so people find this Unsecented-kalman-Filter method. 
+
+There are several **advantages** to use UKF:
+
+* It can take noise measurement data as input and provide smooth velocity estimation of dynamic objects around you without introducing a delay.
+* You can provide an estimation of the orientation and yaw rate of other vehicles using sensors that can't even directly observe these things
+* UKF also gives information on how precise the result is, becaause it always provides a covariance matrix for every estimation, if it go through consistance check.  
+
+
 In this project utilize an Unscented Kalman Filter to estimate the state of a moving object of interest with noisy lidar and radar measurements. Passing the project requires obtaining RMSE values that are lower that the tolerance outlined in the project rubric. 
 
 This project involves the Term 2 Simulator which can be downloaded [here](https://github.com/udacity/self-driving-car-sim/releases).
@@ -37,6 +46,38 @@ OUTPUT: values provided by the c++ program to the simulator
 ["rmse_y"]
 ["rmse_vx"]
 ["rmse_vy"]
+
+## Code details
+
+`main.cpp`- reads in data, calls a function to run the Unscented Kalman Filter, calls a function to calculate RMSE
+
+
+`ukf.cpp` - initializes the Unscented Kalman Filter, calls the predict and update function, defines the predict and update functions 
+
+
+
+
+`tools.cpp` - function to calculate RMSE
+
+
+
+### Data
+
+The data file information is provided by simulator and is the same data files from EKF.  
+
+
+### UFK road map 
+1. Generate sigma points
+2. Predict sigma points
+3. Predict Mean and covariance
+4. Predict Measurement 
+5. Update state
+
+
+
+
+
+
 
 ---
 
